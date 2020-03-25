@@ -29,20 +29,15 @@ namespace Algorithms
                 Console.ReadLine();
             }
 
+            //InsertionSort(numbers);
 
-            InsertionSort(numbers);
+            ShellSort(numbers);
 
-            foreach (int num in numbers)
-            {
-                Console.WriteLine(num);
-
-            }
+            Display(numbers);
 
             Console.WriteLine(numbers.Count);
             //Console.WriteLine(numbers[0]);
             Console.ReadLine();
-
-
         }
 
         public static void InsertionSort(List<int> unsorted)
@@ -65,7 +60,44 @@ namespace Algorithms
 
         public static void ShellSort(List<int> unsorted)
         {
+            int size = unsorted.Count;
+            int j, temp;
+            int pos = 3;
+            
+            while(pos > 0)
+            {
+                for(int i = 0; i < size; i++)
+                {
+                    j = i;
+                    temp = unsorted[i];
 
+                    while((j >= pos) && (unsorted[j - pos] > temp))
+                    {
+                        unsorted[j] = unsorted[j - pos];
+                        j = j - pos;
+                    }
+                    unsorted[j] = temp;
+                }
+
+                if (pos / 2 != 0)
+                {
+                    pos = pos / 2;
+                }
+                else if (pos == 1)
+                {
+                    pos = 0;
+                }
+                else
+                    pos = 1;
+            }
+        }
+
+        public static void Display(List<int> numbers)
+        {
+            foreach (int num in numbers)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
