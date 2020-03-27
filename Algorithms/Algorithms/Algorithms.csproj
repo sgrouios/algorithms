@@ -3,12 +3,18 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ApplicationIcon />
+    <Win32Resource></Win32Resource>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Unsorted_numbers\**" />
     <EmbeddedResource Remove="Unsorted_numbers\**" />
     <None Remove="Unsorted_numbers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

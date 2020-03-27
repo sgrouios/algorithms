@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
+
 
 namespace Algorithms
 {
@@ -10,10 +10,10 @@ namespace Algorithms
         static void Main(string[] args)
         {
             List<int> numbers = new List<int>();
-
+            int search;
+            int option = 0;
             try
             {
-                //Directory.GetCurrentDirectory();
                 StreamReader reader = new StreamReader(File.OpenRead(Directory.GetCurrentDirectory() + "\\unsorted_numbers.csv"));
 
                 Console.WriteLine("File Found");
@@ -26,6 +26,7 @@ namespace Algorithms
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 Console.WriteLine("File could not be found");
                 Console.ReadLine();
             }
@@ -36,9 +37,35 @@ namespace Algorithms
 
             Display(numbers);
 
-            Console.WriteLine(numbers.Count);
-            //Console.WriteLine(numbers[0]);
+            while(option != -1)
+            {
+                Console.WriteLine("Enter the number to search for or -1 to EXIT: ");
+                search = Convert.ToInt32(Console.ReadLine());
+                if (search != -1)
+                {
+                    option = LinearSearch(numbers, search);
+                    if (option != -1)
+                    {
+                        Console.WriteLine(search + $" found at element {option}");
+                    }
+                    else
+                    {
+                        option = 0;
+                        Console.WriteLine($"{search} not found");
+                    }
+                }
+                else
+                    option = -1;
+            }
+
+
             Console.ReadLine();
+
+            //Binary search
+            /*while(LinearSearch return == -1) returns -1 if it has not been found
+             * {
+             * 
+                }*/
         }
 
         public static void InsertionSort(List<int> unsorted)
@@ -93,11 +120,25 @@ namespace Algorithms
             }
         }
 
+        public static int LinearSearch(List<int> numbers, int search)
+        {
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                if(numbers[i] == search)
+                {
+                    return i;
+                }
+                i++;
+            }
+
+            return -1;
+        }
+
         public static void Display(List<int> numbers)
         {
             foreach (int num in numbers)
             {
-                Console.WriteLine(num);
+                Console.Write(num + "\t");
             }
         }
     }
