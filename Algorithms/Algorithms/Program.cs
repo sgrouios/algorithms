@@ -14,7 +14,8 @@ namespace Algorithms
             try
             {
                 //Directory.GetCurrentDirectory();
-                StreamReader reader = new StreamReader(File.OpenRead("C:\\Users\\Stephen\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\unsorted_numbers.csv"));
+                StreamReader reader = new StreamReader(File.OpenRead(Directory.GetCurrentDirectory() + "\\unsorted_numbers.csv"));
+
                 Console.WriteLine("File Found");
 
                 while (!reader.EndOfStream)

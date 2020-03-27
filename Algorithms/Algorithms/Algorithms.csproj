@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Unsorted_numbers\**" />
+    <EmbeddedResource Remove="Unsorted_numbers\**" />
+    <None Remove="Unsorted_numbers\**" />
+  </ItemGroup>
+
 </Project>
