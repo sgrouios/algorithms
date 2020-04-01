@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj": {}
+    "C:\\Users\\Stephen\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj": {
+    "C:\\Users\\Stephen\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj",
+        "projectUniqueName": "C:\\Users\\Stephen\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj",
         "projectName": "Algorithms",
-        "projectPath": "D:\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj",
+        "projectPath": "C:\\Users\\Stephen\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\Algorithms.csproj",
         "packagesPath": "C:\\Users\\Stephen\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\obj\\",
+        "outputPath": "C:\\Users\\Stephen\\OneDrive\\Swinburne\\Anh class\\Tasks\\Algorithms\\algorithms\\Algorithms\\Algorithms\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\Stephen\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

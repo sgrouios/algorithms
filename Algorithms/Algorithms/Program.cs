@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-
+using Algorithms;
 
 namespace Algorithms
 {
@@ -10,135 +11,70 @@ namespace Algorithms
         static void Main(string[] args)
         {
             List<int> numbers = new List<int>();
-            int search;
-            int option = 0;
-            try
+            int[] numSearch = { 575154, 182339, 17132, 773788, 296934, 991395, 303270, 45231, 580, 629822 };
+            int count = 0;
+            int choice = 0;
+
+            while (choice != 9)
             {
-                StreamReader reader = new StreamReader(File.OpenRead(Directory.GetCurrentDirectory() + "\\unsorted_numbers.csv"));
+                Console.WriteLine("\nChoose an option:\n1. Clear current array and import from .csv\n2. Display current array\n3. Sort array using Insertion sort\n4. Sort array using Shell sort\n5. Search through array using Linear search and display details\n6. Search through array using Binary search and display details\n7. Run Analytics on Linear search\n8. Run Analytics on Binary search\n9. Exit\n");
+                choice = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("File Found");
-
-                while (!reader.EndOfStream)
+                switch (choice)
                 {
-                    numbers.Add(Convert.ToInt32(reader.ReadLine()));
+                    case 1:
+                        numbers.Clear();
+                        Algorithms.ReadNumbers(numbers);
+                        break;
+                    case 2:
+                        if (numbers.Count > 0)
+                            Algorithms.Display(numbers);
+                        else
+                            Console.WriteLine("Import the csv before displaying the numbers");
+                        break;
+                    case 3:
+                        if (numbers.Count > 0)
+                            Algorithms.InsertionSort(numbers);
+                        else
+                            Console.WriteLine("Import the csv before sorting");
+                        break;
+                    case 4:
+                        if (numbers.Count > 0)
+                            Algorithms.ShellSort(numbers);
+                        else
+                            Console.WriteLine("Import the csv before sorting");
+                        break;
+                    case 5:
+                        if (numbers.Count > 0)
+                        {
+                            Algorithms.SearchForLinear(numbers, numSearch);
+                        }
+                        break;
+                    case 6:
+                        if (numbers.Count > 0)
+                        {
+                            Algorithms.SearchForBinary(numbers, numSearch);
+                        }
+                        break;
+                    case 7:
+                        if (numbers.Count > 0)
+                        {
+                            count = 0;
+                            Analysis.AnalyseLinearSearch(numbers, numSearch, ref count);
+                            Console.WriteLine("Number of loops for Linear search: " + count);
+                        }
+                        break;
+                    case 8:
+                        if (numbers.Count > 0)
+                        {
+                            count = 0;
+                            Analysis.AnalyseBinarySearch(numbers, numSearch, ref count);
+                            Console.WriteLine("Number of loops for Binary search: " + count);
+                        }
+                        break;
+                    case 9:
+                        break;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("File could not be found");
-                Console.ReadLine();
-            }
-
-            //InsertionSort(numbers);
-
-            ShellSort(numbers);
-
-            Display(numbers);
-
-            while(option != -1)
-            {
-                Console.WriteLine("Enter the number to search for or -1 to EXIT: ");
-                search = Convert.ToInt32(Console.ReadLine());
-                if (search != -1)
-                {
-                    option = LinearSearch(numbers, search);
-                    if (option != -1)
-                    {
-                        Console.WriteLine(search + $" found at element {option}");
-                    }
-                    else
-                    {
-                        option = 0;
-                        Console.WriteLine($"{search} not found");
-                    }
-                }
-                else
-                    option = -1;
-            }
-
-
-            Console.ReadLine();
-
-            //Binary search
-            /*while(LinearSearch return == -1) returns -1 if it has not been found
-             * {
-             * 
-                }*/
-        }
-
-        public static void InsertionSort(List<int> unsorted)
-        {
-            int n = unsorted.Count;
-
-            for (int i = 1; i < n; i++)
-            {
-                int currentNumber = unsorted[i];
-                int j = i - 1;
-
-                while (j >= 0 && unsorted[j] > currentNumber)
-                {
-                    unsorted[j + 1] = unsorted[j];
-                    j = j - 1;
-                }
-                unsorted[j + 1] = currentNumber;
-            }
-        }
-
-        public static void ShellSort(List<int> unsorted)
-        {
-            int size = unsorted.Count;
-            int j, temp;
-            int pos = 3;
-            
-            while(pos > 0)
-            {
-                for(int i = 0; i < size; i++)
-                {
-                    j = i;
-                    temp = unsorted[i];
-
-                    while((j >= pos) && (unsorted[j - pos] > temp))
-                    {
-                        unsorted[j] = unsorted[j - pos];
-                        j = j - pos;
-                    }
-                    unsorted[j] = temp;
-                }
-
-                if (pos / 2 != 0)
-                {
-                    pos = pos / 2;
-                }
-                else if (pos == 1)
-                {
-                    pos = 0;
-                }
-                else
-                    pos = 1;
-            }
-        }
-
-        public static int LinearSearch(List<int> numbers, int search)
-        {
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                if(numbers[i] == search)
-                {
-                    return i;
-                }
-                i++;
-            }
-
-            return -1;
-        }
-
-        public static void Display(List<int> numbers)
-        {
-            foreach (int num in numbers)
-            {
-                Console.Write(num + "\t");
             }
         }
     }
