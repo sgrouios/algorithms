@@ -50,7 +50,7 @@ namespace Algorithms
         {
             int size = unsorted.Count;
             int j, temp;
-            int pos = 3;
+            int pos = 3807;
 
             while (pos > 0)
             {
@@ -78,6 +78,7 @@ namespace Algorithms
                 else
                     pos = 1;
             }
+
         }
 
         public static int BinarySearchDisplay(List<int> numbers, int lower, int upper, int search, ref string display)

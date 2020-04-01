@@ -8,20 +8,14 @@ namespace Algorithms
 {
     class Analysis
     {
-        public static void AnalyseLinearSearch(List<int> numbers, int [] numSearch, ref int count)
+        public static void AnalyseLinearSearch(List<int> numbers, int[] numSearch, ref int count)
         {
-            for (int i = 0; i < 1; i++)
-            {
-                SearchForLinearAnalysis(numbers, numSearch, ref count);
-            }
+            SearchForLinearAnalysis(numbers, numSearch, ref count);
         }
 
         public static void AnalyseBinarySearch(List<int> numbers, int[] numSearch, ref int count)
         {
-            for (int i = 0; i < 1; i++)
-            {
-                SearchForBinaryAnalysis(numbers, numSearch, ref count);
-            }
+            SearchForBinaryAnalysis(numbers, numSearch, ref count);
         }
 
         public static void SearchForBinaryAnalysis(List<int> numbers, int[] numSearch, ref int count)
@@ -45,7 +39,7 @@ namespace Algorithms
             count++;
             int mid;
             if (upper >= lower)
-            {                
+            {
                 mid = (lower + upper) / 2;
                 if (numbers[mid] == search)
                 {
